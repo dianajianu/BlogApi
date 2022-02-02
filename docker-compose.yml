@@ -1,0 +1,27 @@
+version: '3.4'
+
+services:
+  blog.api:
+    image: ${DOCKER_REGISTRY-}blogapi
+    build:
+      context: .
+      dockerfile: Blog.Api/Dockerfile
+    environment:
+     - ASPNETCORE_ENVIRONMENT=Development
+    depends_on:
+      - db
+
+  db:
+    image: "mcr.microsoft.com/mssql/server:2017-latest"
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=dianaCloudAcademy2022
+
+  blog.api.test:
+    image: ${DOCKER_REGISTRY-}blogapitest
+    build:
+      context: .
+      dockerfile: Blog.Api.Test/Dockerfile
+    depends_on:
+      - blog.api
+
