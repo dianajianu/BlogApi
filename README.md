@@ -3,9 +3,9 @@ REST API to manage a single blog website
 
 After launching Docker and running the docker-compose file, perform the following steps:
 
-1. From ~/Blog.Api/Blog.Api Start the server by running
+For starting the server from ~/Blog.Api/Blog.Api run
    - dotnet start 
 You can access the Swagger Api at https://localhost:8090/swagger/index.html
 
-2. From ~/Blog.Api/Blog.Api.Test run the tests by running
+For running the tests from ~/Blog.Api/Blog.Api.Test run
    - dotnet test --logger "console;verbosity=detailed"
